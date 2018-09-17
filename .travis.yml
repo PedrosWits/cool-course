@@ -18,8 +18,8 @@ matrix:
 
     - language: node_js
       node_js:
-        - "iojs"
         - "10"
+        - "8"
 
       before_install:
         - cd slides
