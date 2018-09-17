@@ -1,0 +1,35 @@
+env:
+  - PRACTICALS_DIR=practicals
+  - SLIDES_DIR=slides
+
+matrix:
+  include:
+    - language: ruby
+      rvm:
+        - 2.3
+        - 2.2
+        - jruby
+
+      before_install:
+        - cd $(PRACTICALS_DIR)
+
+      install:
+        - make install
+        - make stylesheets
+
+      script:
+        - make html
+
+    - language: node_js
+      node_js:
+        - "iojs"
+        - "10"
+
+      before_install:
+        - cd $(SLIDES_DIR)
+
+      install:
+        - make install
+
+      script:
+        - make slides
