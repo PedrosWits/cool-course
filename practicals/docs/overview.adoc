@@ -1,0 +1,44 @@
+= Course Overview
+author <email>
+
+:toc: macro
+
+== Motivation
+Why did we make this course?
+
+== Learning Goals
+What are you (as a student) getting out of this course?
+
+== Format
+
+How is this workshop organised?
+
+- Lectures / (15 min) Guidance Lectures
+- Practicals:
+  - Individual exercises
+  - Think and discuss questions are used to get students to reflect about and are used to motivate the following sections.
+
+=== Practical 1 - Getting started with the *SAMPLE*
+
+This section introduces you to:
+
+.Topics
+- A
+- B
+- C
+
+.Links
+- link:sample.html[Slides]
+- link:sample.html[Practical]
+
+== Other Resources
+
+Advices and resources for those interested in learning more about the subject.
+
+== The Team
+
+- Author 1 <email>
+
+- Author 2 <email>
+
+- Lead Demonstrator <email>

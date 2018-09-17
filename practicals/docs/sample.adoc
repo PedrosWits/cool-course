@@ -1,0 +1,10 @@
+:icons: image
+
+[HERO]
+.What is your favourite hero?
+====
+Spidermaaaaan!
+====
+
+[HERO]
+Mine is Batmaaaaan!

@@ -1,0 +1,14 @@
+== Asciidoc extensions
+
+Asciidoc extensions live here. These help us customise or add functionality to some of the great things about asciidoc. One example is an extension that implements a new type of admonition block.
+
+To include an extension when converting an asciidoc file to html with `asciidoctor`, use the `-r` option. For instance:
+
+```shell
+asciidoctor -r ./extensions/hero-block.rb extensions/hero-block/sample.adoc   # on parent dir
+```
+
+Open the resulting sample html file on the browser:
+```shell
+open extensions/hero-block/sample.html  # macOS
+```
