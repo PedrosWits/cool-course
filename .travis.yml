@@ -1,7 +1,3 @@
-env:
-  - PRACTICALS_DIR=practicals
-  - SLIDES_DIR=slides
-
 matrix:
   include:
     - language: ruby
@@ -11,7 +7,7 @@ matrix:
         - jruby
 
       before_install:
-        - cd $(PRACTICALS_DIR)
+        - cd practicals
 
       install:
         - make install
@@ -26,7 +22,7 @@ matrix:
         - "10"
 
       before_install:
-        - cd $(SLIDES_DIR)
+        - cd slides
 
       install:
         - make install
