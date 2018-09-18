@@ -32,7 +32,7 @@ This section introduces you to:
 - C
 
 .Links
-- link:slides/sample/index.html[Slides]
+- link:slides/example/index.html[Slides]
 - link:coursework/sample.html[Practical]
 
 == Other Resources
