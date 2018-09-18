@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/PedrosWits/course-template.svg?branch=master)](https://travis-ci.org/PedrosWits/course-template)
+[![Build Status](https://travis-ci.org/PedrosWits/cool-course.svg?branch=master)](https://travis-ci.org/PedrosWits/cool-course)
 
 # Cool Course
 
