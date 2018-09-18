@@ -4,7 +4,7 @@
 
 Repository template for developing teaching course material in simple markup text files and publishing it in html, via **gh-pages** or a simple http webserver.
 
-http://pedroswits.github.io/cool-course/demo/overview.html
+http://pedroswits.github.io/cool-course/
 
 ---
 
@@ -21,6 +21,8 @@ The material of this course is composed of presentation slides and practical cou
 Coursework material can be easily written in asciidoc. Using [asciidoctor](https://asciidoctor.org/docs/user-manual/) we can convert the source asciidoc files into self-contained static html files which can be deployed on a webserver and nicely viewed on the browser.
 
 ## Usage
+
+### Starting your course repository
 
 You probably want to use this repository as a basis for your own course-material repository. The best solution, in my opinion, is to clone this repository, [remove all history, make commits and push to your own repository](https://stackoverflow.com/a/9683337):
 
@@ -42,67 +44,76 @@ git remote add origin <github-uri>
 git push -u --force origin master
 ```
 
-See below how to generate the html files for the slides and coursework.
+### Writing the content
 
-## Presentation Slides - Revealjs
+#### Generic Course info
 
-Write the slides for your talk in markdown (revealjs) and place them under the `slides/docs` folder.
+Generic information about the course, e.g. overview and schedule, should be written in **asciidoc**. These should be placed under the `docs/` folder.
 
-### Requirements
+#### Slides
 
-- [node](https://nodejs.org/)
-- [npm](//https://www.npmjs.com//)
+The slides for your talks are **revealjs** and can be written in markdown. Place them under the `docs/slides` folder.
 
-### Installation
+#### Coursework
 
-Installs **reveal-md** locally via npm:
-```
-cd slides && make install
-```
+The coursework speaks **asciidoc**. These should be placed under the `practicals/docs` folder.
 
-### Slides to HTML
+### Installation & Requirements
 
-Convert your asciidoc files to html again with the Makefile (which just calls asciidoctor):
+Installation is as easy as:
 
 ```
-cd slides && make slides
+make install
 ```
 
-The resulting HTML will be placed in `slides/build/`.
+This installs **asciidoctor** and **compass** as ruby gems, and **reveal-md** locally via npm.
 
-## Coursework - Asciidoc
-
-Write your tutorials/practicals in asciidoc and place them under the `practicals/docs` folder.
-
-### Requirements
+For these to work you need:
 
 - [ruby](https://www.ruby-lang.org/)
 - [gem](https://rubygems.org/)
 
-### Installation
+to install the **asciidoctor** and **compass** ruby gems, and:
 
-Installs **asciidoctor** as a ruby gem:
+- [node](https://nodejs.org/)
+- [npm](//https://www.npmjs.com//)
+
+to install **reveal-md**.
+
+### Generating the html
+
+Generating the html is as simple as:
 ```
-cd practicals && make install
-```
-
-### Stylesheets
-
-Retrieve and build the [asciidoctor stylesheets](https://github.com/asciidoctor/asciidoctor-stylesheet-factory) so that you can include them in the final html.
-
-```
-cd practicals && make stylesheets
-```
-
-### Practicals to HTML
-
-Convert your asciidoc files to html again with the Makefile (which just calls asciidoctor):
-
-```
-cd practicals && make html
+make html
 ```
 
-The resulting HTML will be placed in `practicals/build/`.
+Make reads the file structure in `docs` and creates the corresponding html file structure in the `build` folder.
+
+```
+build
+├── coursework
+│   └── sample.html
+├── images
+│   └── icons
+├── index.html
+├── overview.html
+├── schedule.html
+└── slides
+    └── example
+```
+
+Coursework documents, written in asciidoc, generate a single self-contained html file, but slides documents, written in markdown, generate an entire directory containing the necessary files revealjs presentation (`build/slides/example`). However, both result in static html content, directly deployable on a webserver.
+
+**NOTE:** Only the input files with the following patterns are inspected and converted to html by the makefile:
+
+- `docs/*.adoc`
+- `docs/slides/*.md`
+- `docs/coursework/*.adoc`
+
+### Asciidoctor extensions
+
+Asciidoctor extensions allow you to customise some of the nicest things about asciidoc. Here, I provide an example of how to write and use a custom admonition block, with a custom icon image. More information can be find in asciidoctor's [user manual](https://asciidoctor.org/docs/user-manual/#extensions) and examples in their [extensions lab](https://github.com/asciidoctor/asciidoctor-extensions-lab).
+
 
 ## Deploy to **gh-pages**
 
@@ -115,7 +126,7 @@ To make this work, you need to:
 
 If this is done successfully, the project gh-pages should be available at:
 
-http://GIT_WHOAMI.github.io/GIT_PROJECT/demo/overview.html
+http://GIT_WHOAMI.github.io/GIT_PROJECT/
 
 ## License
 MIT
