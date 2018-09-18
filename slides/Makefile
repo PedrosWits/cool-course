@@ -1,26 +1,26 @@
 ################################################
 #
 #
-# 							Le Makefile
+#               Le Makefile
 #
 #
 ################################################
-# 	Author:
+#   Author:
 #
-#					Pedro Pinto da Silva
-#			 		p.pinto-da-silva@newcastle.ac.uk
+#          Pedro Pinto da Silva
+#           p.pinto-da-silva@newcastle.ac.uk
 #
 ################################################
 
-BUILD_DIR 						:= build
+BUILD_DIR       := build
 
-DOCS_DIR 							:= docs
-IMAGES_DIR 						:= images
+DOCS_DIR        := docs
+IMAGES_DIR      := images
 
-MARKDOWN							:= $(wildcard $(DOCS_DIR)/*.md)
-HTML_SLIDES						:= $(patsubst $(DOCS_DIR)/%.md,$(BUILD_DIR)/%, $(MARKDOWN))
+MARKDOWN        := $(wildcard $(DOCS_DIR)/*.md)
+HTML_SLIDES     := $(patsubst $(DOCS_DIR)/%.md,$(BUILD_DIR)/%, $(MARKDOWN))
 
-REVEALMD_FLAGS 				:= --static__site --static_dirs=$(IMAGES_DIR)
+REVEALMD_FLAGS  := --static__site --static_dirs=$(IMAGES_DIR)
 
 # asciidoctor command
 define revealmd-call
@@ -34,7 +34,7 @@ $(BUILD_DIR)/% : $(DOCS_DIR)/%.md
 ################################################
 #
 #
-# 							Phonies
+#               Phonies
 #
 #
 ################################################
