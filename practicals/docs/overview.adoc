@@ -18,6 +18,10 @@ How is this workshop organised?
   - Individual exercises
   - Think and discuss questions are used to get students to reflect about and are used to motivate the following sections.
 
+== Schedule
+
+link:schedule.html[here]
+
 === Practical 1 - Getting started with the *SAMPLE*
 
 This section introduces you to:
