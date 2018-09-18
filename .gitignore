@@ -1,17 +1,16 @@
 .DS_STORE
 
-# build folders
-practicals/build/
-slides/build
+# build
+build/
 
 # extensions adoc html sample
-practicals/extensions/*/*.html
+extensions/*/*.html
 
 # stylesheets
-practicals/stylesheets
+stylesheets
 
 # node modules
-slides/node_modules
+node_modules
 
 # package lock
-slides/package-lock.json
+package-lock.json
