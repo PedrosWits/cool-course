@@ -1,4 +1,4 @@
-= Course Overview
+= Cool Course
 author <email>
 
 :toc: macro
@@ -28,8 +28,8 @@ This section introduces you to:
 - C
 
 .Links
-- link:sample.html[Slides]
-- link:sample.html[Practical]
+- link:slides/sample/index.html[Slides]
+- link:coursework/sample.html[Practical]
 
 == Other Resources
 
