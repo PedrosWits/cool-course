@@ -1,32 +1,32 @@
 ################################################
 #
 #
-# 							Le Makefile
+#               Le Makefile
 #
 #
 ################################################
-# 	Author:
+#   Author:
 #
-#					Pedro Pinto da Silva
-#			 		p.pinto-da-silva@newcastle.ac.uk
+#          Pedro Pinto da Silva
+#           p.pinto-da-silva@newcastle.ac.uk
 #
 ################################################
 
-BUILD_DIR 						:= build
-HTML_BUILD_DIR 				:= $(BUILD_DIR)/html
-PDF_BUILD_DIR 				:= $(BUILD_DIR)/pdf
+BUILD_DIR              := build
+HTML_BUILD_DIR         := $(BUILD_DIR)/html
+PDF_BUILD_DIR          := $(BUILD_DIR)/pdf
 
-DOCS_DIR 							:= docs
-IMAGES_DIR 						:= images
-EXTENSIONS_DIR 				:= extensions
-STYLESHEETS_DIR				:= stylesheets
+DOCS_DIR               := docs
+IMAGES_DIR             := images
+EXTENSIONS_DIR         := extensions
+STYLESHEETS_DIR        := stylesheets
 
-DOCS									:= $(wildcard $(DOCS_DIR)/*.adoc)
-HTML_DOCS							:= $(patsubst $(DOCS_DIR)/%.adoc,$(HTML_BUILD_DIR)/%.html, $(DOCS))
+DOCS                   := $(wildcard $(DOCS_DIR)/*.adoc)
+HTML_DOCS              := $(patsubst $(DOCS_DIR)/%.adoc,$(HTML_BUILD_DIR)/%.html, $(DOCS))
 
-EXTENSIONS 						:= ./$(EXTENSIONS_DIR)/*.rb
-STYLESHEET 						:= golo.css
-ASCIIDOCTOR_FLAGS 		:= -a stylesheet=../stylesheets/$(STYLESHEET) -r $(EXTENSIONS) -b html5 -R $(DOCS_DIR) -D $(HTML_BUILD_DIR)
+EXTENSIONS             := ./$(EXTENSIONS_DIR)/*.rb
+STYLESHEET             := golo.css
+ASCIIDOCTOR_FLAGS      := -a stylesheet=../stylesheets/$(STYLESHEET) -r $(EXTENSIONS) -b html5 -R $(DOCS_DIR) -D $(HTML_BUILD_DIR)
 
 # asciidoctor command
 define asciidoctor-call
@@ -40,7 +40,7 @@ $(HTML_BUILD_DIR)/%.html : $(DOCS_DIR)/%.adoc
 ################################################
 #
 #
-# 							Phonies
+#               Phonies
 #
 #
 ################################################
