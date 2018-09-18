@@ -1,5 +1,5 @@
-= Automation and Orchestration in the Cloud
-Pedro Pinto da Silva <p.pinto-da-silva@newcastle.ac.uk>
+= Cool Course
+author <email>
 
 == Schedule
 
