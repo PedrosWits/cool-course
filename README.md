@@ -1,13 +1,14 @@
 [![Build Status](https://travis-ci.org/PedrosWits/course-template.svg?branch=master)](https://travis-ci.org/PedrosWits/course-template)
 
-# Yet another Course Template
+# Cool Course
 
-A structured template repository for writing the course material
-(slides and practicals) in simple markup text files and converting them to html, ready to be delivered via **gh-pages** or a webserver.
+Repository template for developing teaching course material in simple markup text files and publishing it in html, via **gh-pages** or a simple http webserver.
 
 ---
 
 ## Overview
+
+The material of this course is composed of presentation slides and practical coursework.
 
 ### Slides
 
@@ -15,7 +16,7 @@ A structured template repository for writing the course material
 
 ### Practicals
 
-Coursework material can be easily described in asciidoc. Using [asciidoctor](https://asciidoctor.org/docs/user-manual/) we can easily convert the source asciidoc files into self-contained static html files which can be easily deployed on a webserver and nicely viewed on the browser.
+Coursework material can be easily written in asciidoc. Using [asciidoctor](https://asciidoctor.org/docs/user-manual/) we can convert the source asciidoc files into self-contained static html files which can be deployed on a webserver and nicely viewed on the browser.
 
 ## Usage
 
@@ -39,9 +40,9 @@ git remote add origin <github-uri>
 git push -u --force origin master
 ```
 
-See below for how to generate the html files for the slides and coursework.
+See below how to generate the html files for the slides and coursework.
 
-## Lecture/Talk Slides - Revealjs
+## Presentation Slides - Revealjs
 
 Write the slides for your talk in markdown (revealjs) and place them under the `slides/docs` folder.
 
@@ -67,7 +68,7 @@ cd slides && make slides
 
 The resulting HTML will be placed in `slides/build/`.
 
-## Practicals - Asciidoc
+## Coursework - Asciidoc
 
 Write your tutorials/practicals in asciidoc and place them under the `practicals/docs` folder.
 
@@ -100,6 +101,15 @@ cd practicals && make html
 ```
 
 The resulting HTML will be placed in `practicals/build/`.
+
+## Deploy to **gh-pages**
+
+The repo contains a `.travis.yml` file which is configured to publish built html files directly on the **gh-pages** branch.
+
+To make this work, you need to:
+
+- Modify GITHUB_TOKEN with your own value obtained via **travis encrypt**.
+- Activate GitHub Pages on the settings panel of your repository.
 
 ## License
 MIT
