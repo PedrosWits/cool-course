@@ -7,6 +7,9 @@ slides/build
 # extensions adoc html sample
 practicals/extensions/*/*.html
 
+# stylesheets
+practicals/stylesheets
+
 # node modules
 slides/node_modules
 
