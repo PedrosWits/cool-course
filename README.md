@@ -4,6 +4,8 @@
 
 Repository template for developing teaching course material in simple markup text files and publishing it in html, via **gh-pages** or a simple http webserver.
 
+http://pedroswits.github.io/cool-course/demo/overview.html
+
 ---
 
 ## Overview
@@ -110,6 +112,10 @@ To make this work, you need to:
 
 - Modify GITHUB_TOKEN with your own value obtained via **travis encrypt**.
 - Activate GitHub Pages on the settings panel of your repository.
+
+If this is done successfully, the project gh-pages should be available at:
+
+http://GIT_WHOAMI.github.io/GIT_PROJECT/demo/overview.html
 
 ## License
 MIT
