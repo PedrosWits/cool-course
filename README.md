@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/PedrosWits/cool-course.svg?branch=master)](https://travis-ci.org/PedrosWits/cool-course)
-
 # Cool Course
 
 Repository template for developing teaching course material in simple markup text files and publishing it in html, via **gh-pages** or a simple http webserver.
@@ -117,12 +115,11 @@ Asciidoctor extensions allow you to customise some of the nicest things about as
 
 ## Deploy to **gh-pages**
 
-The repo contains a `.travis.yml` file which is configured to publish built html files directly on the **gh-pages** branch.
+Ideally, we would use **travis-ci** to deploy directly to **gh-pages**. However, travis does not yet support setting several target languages (ruby for asciidoctor and node_js for reveal-md).
 
-To make this work, you need to:
+Hence, a manual strategy has to be adapted. A suggestion is to use shell scripts such as [this](https://github.com/APIs-guru/deploy-to-gh-pages).
 
-- Modify GITHUB_TOKEN with your own value obtained via **travis encrypt**.
-- Activate GitHub Pages on the settings panel of your repository.
+Don't forget to activate GitHub Pages on the settings panel of your repository.
 
 If this is done successfully, the project gh-pages should be available at:
 
