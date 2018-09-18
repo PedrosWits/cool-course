@@ -50,7 +50,7 @@ all: install stylesheets html
 
 install:
 	@echo "Installing asciidoctor....."; \
-	gem install asciidoctor
+	gem install asciidoctor compass
 
 stylesheets:
 	@echo "Installing stylesheets....."; \
