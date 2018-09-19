@@ -115,13 +115,29 @@ Asciidoctor extensions allow you to customise some of the nicest things about as
 
 ## Deploy to **gh-pages**
 
-Ideally, we would use **travis-ci** to deploy directly to **gh-pages**. However, travis does not yet support setting several target languages (ruby for asciidoctor and node_js for reveal-md).
+### Manually
 
-Hence, a manual strategy has to be adapted. A suggestion is to use shell scripts such as [this](https://github.com/APIs-guru/deploy-to-gh-pages).
+I suggest following the [approach](https://gist.github.com/cobyism/4730490).
 
-Don't forget to activate GitHub Pages on the settings panel of your repository.
+However, this comes at the cost of removing the **build** directory from the gitignore file, which doesn't seem to make it a very elegant solution. On the other hand, it simplifies things a lot. Everytime there's an update to the **build** folder, you commit it to master and push the changes to **gh-pages** using git subtree:
 
-If this is done successfully, the project gh-pages should be available at:
+```
+git subtree push --prefix dist origin gh-pages
+```
+
+
+
+### Continuous Integration
+
+If you want commits to master to automatically update **gh-pages** changes then continuous integration is the way to go.
+
+I tried using **travis-ci**, but, in the end I went with **circle-ci** because it felt easier to customise (since we're using Ruby and Nodejs in the same build). `.circleci/config.yaml` provides a usable **circle-ci** config file that accomplishes this. You might want to tweak this to your likings, or try to do it on travis instead, using the same docker image.
+
+### Finally
+
+Remember to activate GitHub Pages on the settings panel of your repository.
+
+If the steps above run successfully, the project's gh-pages should be available at:
 
 http://GIT_WHOAMI.github.io/GIT_PROJECT/
 
