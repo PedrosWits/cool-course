@@ -151,6 +151,9 @@ coursework: dirs styles images $(COURSEWORK_OUTPUT) $(GENERIC_OUTPUT) index
 
 html: coursework slides
 
+soft-clean :
+	rm -rf $(BUILD_DIR)
+
 clean :
 	@echo "Cleaning up....."; \
 	rm -rf $(BUILD_DIR) $(STYLESHEETS_DIR) node_modules package-lock.json
@@ -166,4 +169,5 @@ debug:
 	echo "command:\n\t$(revealmd-call) FILENAME" && \
 	echo "command:\n\t$(asciidoctor-call-generic) FILENAME"
 
-.PHONY: all install install-gems install-revealmd styles dirs images index slides coursework html clean debug
+.PHONY: all install install-gems install-revealmd styles dirs images \
+			  index slides coursework html soft-clean clean debug
