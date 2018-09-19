@@ -100,6 +100,22 @@ $(STYLESHEETS_DIR) :
 		rm -rf asciidoctor-stylesheet-factory \
 		||	echo "./$(STYLESHEETS_DIR) exists. Skipping....." \
 
+$(BUILD_DIR) :
+	mkdir -p $(BUILD_DIR)
+
+$(BUILD_DIR)/$(SLIDES_DIR) :
+	mkdir -p $(BUILD_DIR)/$(SLIDES_DIR)
+
+$(BUILD_DIR)/$(COURSEWORK_DIR) :
+	mkdir -p $(BUILD_DIR)/$(COURSEWORK_DIR)
+
+$(BUILD_DIR)/$(IMAGES_DIR) : $(SRC_DIR)/$(IMAGES_DIR)
+	rm -rf $(BUILD_DIR)/$(IMAGES_DIR) && \
+	cp -rf $(SRC_DIR)/$(IMAGES_DIR) $(BUILD_DIR)/$(IMAGES_DIR)
+
+$(BUILD_DIR)/index.html :
+	@echo "<meta http-equiv=\"refresh\" content=\"0; URL=overview.html\" />" > $(BUILD_DIR)/index.html
+
 ################################################
 #
 #
@@ -111,31 +127,29 @@ $(STYLESHEETS_DIR) :
 
 all: install html
 
-install:
+install: install-gems install-revealmd
+
+install-gems:
 	@echo "Installing asciidoctor....." && \
-	gem install asciidoctor compass && \
+	gem install asciidoctor compass
+
+install-revealmd:
 	echo "Installing reveal-md locally....." && \
 	npm install
 
 styles: $(STYLESHEETS_DIR)
 
-dirs:
-	mkdir -p $(BUILD_DIR) $(BUILD_DIR)/$(SLIDES_DIR) $(BUILD_DIR)/$(COURSEWORK_DIR)
+dirs: $(BUILD_DIR) $(BUILD_DIR)/$(SLIDES_DIR) $(BUILD_DIR)/$(COURSEWORK_DIR)
 
-images:
-	cp -r $(SRC_DIR)/$(IMAGES_DIR) $(BUILD_DIR)/$(IMAGES_DIR)
+images: $(BUILD_DIR)/$(IMAGES_DIR)
 
-index:
-	@echo "<meta http-equiv=\"refresh\" content=\"0; URL=overview.html\" />" > $(BUILD_DIR)/index.html
+index: $(BUILD_DIR)/index.html
 
-html: dirs \
-			styles \
-	    images \
-			$(SLIDES_OUTPUT) \
-			$(COURSEWORK_OUTPUT) \
-			$(GENERIC_OUTPUT) \
-			index
+slides: dirs $(SLIDES_OUTPUT)
 
+coursework: dirs styles images $(COURSEWORK_OUTPUT) $(GENERIC_OUTPUT) index
+
+html: coursework slides
 
 clean :
 	@echo "Cleaning up....."; \
@@ -152,4 +166,4 @@ debug:
 	echo "command:\n\t$(revealmd-call) FILENAME" && \
 	echo "command:\n\t$(asciidoctor-call-generic) FILENAME"
 
-.PHONY: all install styles dirs images index html clean debug
+.PHONY: all install install-gems install-revealmd styles dirs images index slides coursework html clean debug
