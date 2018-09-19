@@ -125,13 +125,11 @@ However, this comes at the cost of removing the **build** directory from the git
 git subtree push --prefix dist origin gh-pages
 ```
 
-
-
 ### Continuous Integration
 
-If you want commits to master to automatically update **gh-pages** changes then continuous integration is the way to go.
+If you want commits to master to automatically update **gh-pages** then continuous integration is the way to go.
 
-I tried using **travis-ci**, but, in the end I went with **circle-ci** because it felt easier to customise (since we're using Ruby and Nodejs in the same build). `.circleci/config.yaml` provides a usable **circle-ci** config file that accomplishes this. You might want to tweak this to your likings, or try to do it on travis instead, using the same docker image.
+I tried using **travis-ci** and **circle-ci**. The latter felt easier to customise (since we're using Ruby and Nodejs in the same build), but I couldn't get it to work properly in the end as Chromium would break when running **reveal-md**.
 
 ### Finally
 
