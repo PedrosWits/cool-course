@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  build-and-deploy:
+  build:
     branches:
       only:
         - master
@@ -23,4 +23,4 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - build-and-deploy
+      - build
