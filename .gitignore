@@ -10,4 +10,5 @@ stylesheets
 node_modules
 
 # package lock
+package.json
 package-lock.json

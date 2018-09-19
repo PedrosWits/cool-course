@@ -137,7 +137,7 @@ install-gems:
 
 install-revealmd:
 	echo "Installing reveal-md locally....." && \
-	npm install
+	npm install reveal-md
 
 styles: $(STYLESHEETS_DIR)
 
