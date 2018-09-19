@@ -52,6 +52,7 @@ ASCIIDOCTOR_FLAGS      := -r $(EXTENSIONS) \
 
 REVEALMD_FLAGS         := --static__site \
                           --static_dirs=$(SRC_DIR)/$(IMAGES_DIR) \
+													--disable-auto-open \
 													--puppeteer-launch-args "--no-sandbox --disable-setuid-sandbox"
 
 #
