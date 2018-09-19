@@ -1,8 +1,5 @@
 .DS_STORE
 
-# build
-build/
-
 # extensions adoc html sample
 extensions/*/*.html
 
