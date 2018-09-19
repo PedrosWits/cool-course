@@ -13,7 +13,7 @@
 ################################################
 
 BUILD_DIR              := build
-SRC_DIR								 := docs
+SRC_DIR                := docs
 
 COURSEWORK_DIR         := coursework
 SLIDES_DIR             := slides
@@ -32,7 +32,7 @@ COURSEWORK_OUTPUT      := $(patsubst $(SRC_DIR)/$(COURSEWORK_DIR)/%.adoc, \
 
 SLIDES_OUTPUT          := $(patsubst $(SRC_DIR)/$(SLIDES_DIR)/%.md, \
                                      $(BUILD_DIR)/$(SLIDES_DIR)/%, \
-																		 $(SLIDES_INPUT))
+                                     $(SLIDES_INPUT))
 
 GENERIC_OUTPUT         := $(patsubst $(SRC_DIR)/%.adoc, \
                                      $(BUILD_DIR)/%.html, \
@@ -52,8 +52,8 @@ ASCIIDOCTOR_FLAGS      := -r $(EXTENSIONS) \
 
 REVEALMD_FLAGS         := --static__site \
                           --static_dirs=$(SRC_DIR)/$(IMAGES_DIR) \
-													--disable-auto-open \
-													--puppeteer-launch-args "--no-sandbox --disable-setuid-sandbox"
+                          --disable-auto-open \
+                          --puppeteer-launch-args "--no-sandbox --disable-setuid-sandbox"
 
 #
 
@@ -81,8 +81,8 @@ $(BUILD_DIR)/%.html : $(SRC_DIR)/%.adoc
 # revealmd command
 define revealmd-call
 node_modules/.bin/reveal-md $(REVEALMD_FLAGS) \
-          									--static=./$@ \
-          									$<
+                            --static=./$@ \
+                            $<
 endef
 
 # building adoc files into html files
@@ -100,7 +100,7 @@ $(STYLESHEETS_DIR) :
 		mv stylesheets ../$(STYLESHEETS_DIR) && \
 		cd .. && \
 		rm -rf asciidoctor-stylesheet-factory \
-		||	echo "./$(STYLESHEETS_DIR) exists. Skipping....." \
+	||  echo "./$(STYLESHEETS_DIR) exists. Skipping....." \
 
 $(BUILD_DIR) :
 	mkdir -p $(BUILD_DIR)
@@ -172,4 +172,4 @@ debug:
 	echo "command:\n\t$(asciidoctor-call-generic) FILENAME"
 
 .PHONY: all install install-gems install-revealmd styles dirs images \
-			  index slides coursework html soft-clean clean debug
+        index slides coursework html soft-clean clean debug
