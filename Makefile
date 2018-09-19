@@ -78,9 +78,9 @@ $(BUILD_DIR)/%.html : $(SRC_DIR)/%.adoc
 
 # revealmd command
 define revealmd-call
-reveal-md $(REVEALMD_FLAGS) \
-          --static=./$@ \
-          $<
+node_modules/.bin/reveal-md $(REVEALMD_FLAGS) \
+          									--static=./$@ \
+          									$<
 endef
 
 # building adoc files into html files
